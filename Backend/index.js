@@ -2,8 +2,9 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import authRoutes from './routes/authRoutes.js'
-import chatRoutes from './routes/chatRoutes.js'
+import fetch from "node-fetch"; // add this if not included in Node 18+
+import authRoutes from "./routes/authRoutes.js";
+import chatRoutes from "./routes/chatRoutes.js";
 
 dotenv.config();
 
@@ -14,15 +15,14 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/chat", chatRoutes);
 
-app.get('/',(req,res)=>{
+app.get("/", (req, res) => {
   res.send({
-    activeStatus:true,
-    error:false,
+    activeStatus: true,
+    error: false,
   });
 });
 
-
-// ✅ MongoDB Connection
+// ✅ MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -33,44 +33,34 @@ mongoose
 
 // ✅ Chat Schema
 const chatSchema = new mongoose.Schema({
-  userId:{ type: String, required: true },
-  role: String, // "user" or "assistant"
+  userId: { type: String, required: true },
+  role: String,
   content: String,
   timestamp: { type: Date, default: Date.now },
 });
 
 const Chat = mongoose.models.Chat || mongoose.model("Chat", chatSchema);
 
-
-
+// ✅ Chat route
 app.post("/api/chat", async (req, res) => {
   try {
     const { message, userId } = req.body;
-
     if (!message || !userId) {
       return res.status(400).json({ error: "Message is required" });
     }
 
-    //save user message
-    await Chat.create({
-      userId,
-      role:'user',
-      content:message,
-    });
+    await Chat.create({ userId, role: "user", content: message });
 
-
-    // 🔹 Call OpenRouter API
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        // Optional headers help identify your app
-        "HTTP-Referer": "http://localhost:3000",
+        "HTTP-Referer": "https://your-vercel-app.vercel.app",
         "X-Title": "My Chatbot System",
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo", // or "mistralai/mistral-7b-instruct", "google/gemini-pro", etc.
+        model: "gpt-3.5-turbo",
         messages: [
           { role: "system", content: "You are a helpful chatbot assistant." },
           { role: "user", content: message },
@@ -78,31 +68,16 @@ app.post("/api/chat", async (req, res) => {
       }),
     });
 
-    if (!response.ok) {
-      const error = await response.json();
-      console.error("❌ OpenRouter error:", error);
-      return res.status(response.status).json(error);
-    }
-
     const data = await response.json();
     const botReply = data.choices?.[0]?.message?.content || "No response";
 
-    //save bot reply
-    await Chat.create({
-      userId,
-      role:"assistant",
-      content:botReply,
-    });
-
-
+    await Chat.create({ userId, role: "assistant", content: botReply });
     res.json({ reply: botReply });
   } catch (error) {
     console.error("❌ Server error:", error);
     res.status(500).json({ error: error.message });
   }
 });
-
-
 
 app.get("/api/chat/:userId", async (req, res) => {
   try {
@@ -114,13 +89,9 @@ app.get("/api/chat/:userId", async (req, res) => {
   }
 });
 
-
-
-app.listen(5000, () => console.log("🚀 Server running on port 5000"));
-
-
-
-
+// ❌ REMOVE app.listen()
+// ✅ Instead export app
+export default app;
 
 
 
