@@ -2,18 +2,15 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import fetch from "node-fetch"; // add this if not included in Node 18+
+import fetch from "node-fetch";
+import bcrypt from "bcryptjs"; 
+
 import authRoutes from "./routes/authRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
-import bcrypt from "bcryptjs";
-
 
 dotenv.config();
 
-
 const app = express();
-
-
 
 app.use(cors());
 app.use(express.json());
@@ -95,9 +92,5 @@ app.get("/api/chat/:userId", async (req, res) => {
   }
 });
 
-// ❌ REMOVE app.listen()
-// ✅ Instead export app
+// ✅ Export for Vercel
 export default app;
-
-
-
