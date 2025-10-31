@@ -1,0 +1,263 @@
+/* src/components/ChatBot.css */
+
+.chatbot-page {
+  margin: 0;
+  padding: 0;
+  background-image: url('C:\react-js\my_app\src\component\image\bg.jpg');
+  background-size: cover;
+
+} 
+ 
+.chatbot-page h2{
+    text-align: left;
+    margin-top: 90px;
+    padding: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 15px;
+}
+
+.chat-box {
+  width: 1000px;
+  margin-top: 10px ;
+  height:420px;
+  overflow-y: auto;
+  background-color: rgba(0, 0,0, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+  
+  font-size: 1.3rem;
+  scrollbar-width: none;
+}
+
+.chat-box h3{
+  padding: 2px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-left: 10px;
+    color: #0a3f20;
+}
+
+.chat-box  b {
+  font-family:'Courier New', Courier, monospace;
+}
+
+.chat-box p{
+  font-family: Corbel;
+}
+
+.message {
+  padding: 8px 12px;
+  border-radius: 18px;
+  margin: 6px 0;
+  max-width: 60%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  
+  
+}
+
+.message .user {
+  background-color: #eafaeb;
+  align-self: flex-end;
+  margin-left: auto;
+  text-align: right;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  
+}
+
+.message .bot {
+  background-color: #e4ffdd;
+  text-align: left;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.input-box {
+  display: flex;
+  gap: 10px;
+  width: 1000px;
+  margin-left: 200px;
+  padding: 7px;
+  
+}
+
+.input-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+
+}
+
+.input-box button {
+  padding: 10px 20px;
+  border-radius: 15px;
+  background-color: #0a3f20;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.chatbot-page h2 {
+  text-align: left;
+  margin-top: 90px;
+  padding: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-left: 15px;
+}
+
+.chat-box {
+  width: 1000px;
+  margin-top: 10px;
+  height: 420px;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+  font-size: 1.3rem;
+  scrollbar-width: none;
+}
+
+.chat-box h3 {
+  padding: 2px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-left: 10px;
+  color: #0a3f20;
+}
+
+.chat-box b {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.chat-box p {
+  font-family: Corbel;
+}
+
+.message {
+  padding: 8px 12px;
+  border-radius: 18px;
+  margin: 6px 0;
+  max-width: 60%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.message .user {
+  background-color: #eafaeb;
+  align-self: flex-end;
+  margin-left: auto;
+  text-align: right;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.message .bot {
+  background-color: #e4ffdd;
+  text-align: left;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.input-box {
+  display: flex;
+  gap: 10px;
+  width: 1000px;
+  margin-left: 200px;
+  padding: 7px;
+}
+
+.input-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+}
+
+.input-box button {
+  padding: 10px 20px;
+  border-radius: 15px;
+  background-color: #0a3f20;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* === Responsive Styles === */
+/* @media (max-width: 1024px) {
+  .chat-box,
+  .input-box {
+    width: 90%;
+    margin-left: 5%;
+  }
+} */
+
+@media (max-width: 768px) {
+  .chatbot-page {
+  margin: 0;
+  padding: 0;
+  background-image: url('C:\react-js\my_app\src\component\image\bg.jpg');
+  background-size: cover;
+
+} 
+
+  .chatbot-page h2 {
+    text-align: center;
+    margin-top: 70px;
+    font-size: 1.8rem;
+  }
+
+  .chat-box {
+    width: 90%;
+    height: 380px;
+    margin: 20px auto;
+    font-size: 1.1rem;
+  }
+
+  .input-box {
+    flex-direction: row;
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .input-box input {
+    
+    font-size: 1rem;
+  }
+
+  .input-box button {
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chatbot-page h2 {
+    font-size: 1.5rem;
+    margin-top: 60px;
+    text-align: center;
+  }
+
+  .chat-box {
+    height: 350px;
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  .input-box {
+    flex-direction: column;
+    width: 95%;
+    margin: 10px auto;
+    gap: 8px;
+  }
+
+  .input-box input {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .input-box button {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}

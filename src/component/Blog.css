@@ -1,0 +1,181 @@
+.blog-post{
+    margin: 0;
+    padding: 0;
+    background-image: url('C:\react-js\my_app\src\component\image\bg.jpg');
+    background-size: cover;
+}
+
+
+
+
+.header h1 {
+    font-size: 3.5rem ;
+    
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 370px;
+    margin-top: 90px;
+    padding: auto;
+}
+
+.header p {
+    font-size: 1.5rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 230px;
+    margin-right: 250px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* .blog1 {
+    height: 50rem;
+    width: 40rem;
+    margin: 10px;
+    padding: 10px;
+} */
+
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-between; 
+    padding: 10px;
+    margin-left: 35px;
+    
+}
+.blog-container div {
+    width: 49%;
+    
+    
+}
+
+.blog{
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    
+}
+.blog:hover {
+  transform: translateY(-5px);
+}
+
+
+.blog img {
+    width: 100%;
+    height: 15rem;
+    border-radius: 14px;
+    padding: 8px;
+}
+
+.blog h1 {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* background-color: rgb(224, 248, 222); */
+    padding: 8px;
+}
+
+.blog p  {
+    font-size: 16px;
+    color: #666;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: left;
+    margin-right: 50px;
+    padding: 8px;
+    /* background-color: rgb(212, 250, 212); */
+}
+
+
+
+/* === 📱 Tablet (≤768px) === */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.5rem;
+    margin-left: 0;
+    margin-top: 80px;
+    text-align: center;
+  }
+
+  .header p {
+    font-size: 1.2rem;
+    margin: 0 40px;
+    padding: 15px;
+  }
+
+  .blog-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+  }
+
+  .blog-container div {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .blog img {
+    height: 12rem;
+  }
+
+  .blog h1 {
+    font-size: 1.3rem;
+  }
+
+  .blog p {
+    font-size: 1rem;
+  }
+}
+
+/* === 📱 Mobile (≤480px) === */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 2rem;
+    margin: 20px 50px 10px 50px;
+    text-align: center;
+  }
+
+  .header p {
+    font-size: 1rem;
+    margin: 0 15px;
+    padding: 10px;
+  }
+
+  .blog-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .blog-container div {
+    width: 100%;
+  }
+
+  .blog {
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .blog:hover {
+  transform: translateY(-5px);
+}
+
+  .blog img {
+    height: 10rem;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .blog h1 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .blog p {
+    font-size: 0.9rem;
+    text-align: justify;
+    padding: 5px 10px;
+  }
+}

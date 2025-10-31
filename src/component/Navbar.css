@@ -1,0 +1,154 @@
+/* Base styles */
+.navbar {
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluid{
+    background-color: rgba(0, 0, 0, 0.1); 
+    width: 84.2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    
+}
+
+.navbar-brand{
+    font-size: 3rem;
+    font-weight: 400;
+    font-family:Pristina;
+    margin-right: 210px;
+    
+}
+
+.nav-link{
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family:Courier;
+    padding: 0;
+    margin: 0px;
+    margin-left: 80px;
+    
+}
+
+.logo{
+    width: 4rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.navbar .btn{
+    background-color: black;
+    font-size: 1rem;
+    margin-right: 25px;
+    font-family: Courier;
+    border: 1px solid black;
+
+    color:wheat;
+    border-radius: 15px;
+    padding: 8px;
+
+    cursor:pointer;
+    margin-left: 40px;
+    
+}
+
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Hide hamburger on large screens */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  border: none;
+  background: none;
+  gap: 5px;
+}
+
+.bar {
+  height: 3px;
+  width: 25px;
+  background-color: #333;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Animate hamburger to X */
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .container-fluid{
+    width: 600px;
+    height: 70px;
+  }
+  .navbar-brand{
+    margin-left: -120px;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .nav-menu.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .nav-link {
+    color: white !important;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .btn {
+    background-color: #fff;
+    color: black;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

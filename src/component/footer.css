@@ -1,0 +1,62 @@
+.chatbot-footer {
+  background-color: #302f2f;
+  padding: 40px 20px 20px;
+  color: #f8f1f1;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+}
+
+.footer-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.footer-section h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #faf1f1;
+}
+
+.footer-section p,
+.footer-section li {
+  margin: 5px 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section a {
+  color: #c0defd;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.crisis-warning {
+  margin: 30px auto 10px;
+  max-width: 800px;
+  text-align: center;
+  color: #ff7c6d;
+  font-weight: bold;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #f1eded;
+}
+

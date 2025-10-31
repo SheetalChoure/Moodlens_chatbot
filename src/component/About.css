@@ -1,0 +1,40 @@
+.about-section{
+    margin: 0;
+    padding: 0;
+    background-image: url('C:\react-js\my_app\src\component\image\bg.jpg');
+    background-size: cover;
+    
+    
+}
+
+
+
+.heading{
+    font-size: 3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    margin-top: 100px;
+    padding:10px;
+
+}
+.para{
+    font-size: 1.5rem;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 50px;
+    padding: 40px;
+    
+}
+.para h3{
+    font-size: 1.5rem;
+    font-family: Courier New;
+    color: rgb(17, 17, 17);
+    font-weight: 700;
+    padding: 8px;
+}
+.para ul li{
+    font-size: 1.3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+    padding: 8px;
+    font-weight: 50;
+}
