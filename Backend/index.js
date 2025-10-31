@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 import fetch from "node-fetch"; // add this if not included in Node 18+
 import authRoutes from "./routes/authRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
+import bcrypt from "bcryptjs";
+
 
 dotenv.config();
 
