@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import fetch from "node-fetch";
 import bcrypt from "bcryptjs"; 
+import jwt from "jsonwebtoken";
+
 
 import authRoutes from "./routes/authRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
@@ -91,6 +93,7 @@ app.get("/api/chat/:userId", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch chat history" });
   }
 });
+
 
 // ✅ Export for Vercel
 export default app;
