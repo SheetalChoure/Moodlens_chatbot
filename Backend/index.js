@@ -18,8 +18,8 @@ app.get('/',(req,res)=>{
   res.send({
     activeStatus:true,
     error:false,
-  })
-})
+  });
+});
 
 
 // ✅ MongoDB Connection
