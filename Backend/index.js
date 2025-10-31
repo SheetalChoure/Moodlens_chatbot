@@ -14,6 +14,12 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/chat", chatRoutes);
 
+app.get('/',(req,res)=>{
+  res.send({
+    activeStatus:true,
+    error:false,
+  })
+})
 
 
 // ✅ MongoDB Connection
