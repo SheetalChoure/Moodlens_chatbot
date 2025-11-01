@@ -19,7 +19,7 @@ export default function Chat() {
     setMessages([...messages, newMsg]);
     setInput("");
 
-    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}`, {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/chat`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
