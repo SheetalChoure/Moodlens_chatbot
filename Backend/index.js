@@ -20,6 +20,12 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/chat", chatRoutes);
 
+app.use(cors({
+  origin: ["https://your-netlify-site.netlify.app", "http://localhost:3000"],
+  credentials: true
+}));
+
+
 app.get("/", (req, res) => {
   res.send({
     activeStatus: true,
