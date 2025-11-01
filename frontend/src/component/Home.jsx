@@ -4,7 +4,7 @@ import Footer from './footer';
 import { useNavigate } from 'react-router-dom';
 
 import { FaClock, FaLock } from 'react-icons/fa';
-import bg from './image/bg.jpg';
+
 
 import myvideo from './image/video.mp4';
 
