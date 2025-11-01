@@ -22,7 +22,7 @@ console.log("UserId:", userId);
 
   const fetchHistory = async () => {
     try {
-      const res = await fetch(`${REACT_APP_SERVER_URL}/${userId}`, {
+      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`, // ✅ send token
           "Content-Type": "application/json",
@@ -60,7 +60,7 @@ console.log("UserId:", userId);
     setMessages([...messages, newMsg]);
     setInput("");
 
-    const res = await fetch(`${REACT_APP_SERVER_URL}`, {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,7 +1,7 @@
 .blog-post{
     margin: 0;
     padding: 0;
-    background-image: url('C:\react-js\my_app\src\component\image\bg.jpg');
+    background-image: url('./image/bg.jpg');
     background-size: cover;
 }
 
