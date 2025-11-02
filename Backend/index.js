@@ -3,41 +3,35 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import fetch from "node-fetch";
-import bcrypt from "bcryptjs"; 
-import jwt from "jsonwebtoken";
-
 
 import authRoutes from "./routes/authRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
 
 dotenv.config();
-
 const app = express();
 
-app.use(cors());
-app.use(express.json());
-
-app.use("/api/auth", authRoutes);
-app.use("/api/chat", chatRoutes);
-
+// ✅ Correct CORS setup
 app.use(cors({
-  origin: ["https://moodlens-chatbot.vercel.app", "http://localhost:3000"],
+  origin: [
+    "http://localhost:3000",
+    "https://moodlens-chatbot.vercel.app" 
+  ],
   credentials: true
 }));
 
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send({
-    activeStatus: true,
-    error: false,
-  });
-});
+// ✅ Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/chat", chatRoutes);
+
+// ✅ Root test route
+app.get("/", (req, res) => res.json({ activeStatus: true }));
 
 // ✅ MongoDB connection
 mongoose.connect(process.env.MONGO_URI)
-
   .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err.message));
+  .catch((err) => console.error("❌ MongoDB error:", err.message));
 
 // ✅ Chat Schema
 const chatSchema = new mongoose.Schema({
@@ -49,13 +43,12 @@ const chatSchema = new mongoose.Schema({
 
 const Chat = mongoose.models.Chat || mongoose.model("Chat", chatSchema);
 
-// ✅ Chat route
+// ✅ Chat routes
 app.post("/api/chat", async (req, res) => {
   try {
     const { message, userId } = req.body;
-    if (!message || !userId) {
+    if (!message || !userId)
       return res.status(400).json({ error: "Message is required" });
-    }
 
     await Chat.create({ userId, role: "user", content: message });
 
@@ -64,8 +57,8 @@ app.post("/api/chat", async (req, res) => {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        "HTTP-Referer": "https://your-vercel-app.vercel.app",
-        "X-Title": "My Chatbot System",
+        "HTTP-Referer": "https://moodlens-chatbot.vercel.app", // ✅ corrected
+        "X-Title": "Moodlens Chatbot",
       },
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
@@ -78,12 +71,12 @@ app.post("/api/chat", async (req, res) => {
 
     const data = await response.json();
     const botReply = data.choices?.[0]?.message?.content || "No response";
-
     await Chat.create({ userId, role: "assistant", content: botReply });
+
     res.json({ reply: botReply });
-  } catch (error) {
-    console.error("❌ Server error:", error);
-    res.status(500).json({ error: error.message });
+  } catch (err) {
+    console.error("❌ Server error:", err);
+    res.status(500).json({ error: err.message });
   }
 });
 
@@ -92,11 +85,17 @@ app.get("/api/chat/:userId", async (req, res) => {
     const chats = await Chat.find({ userId: req.params.userId }).sort({ timestamp: 1 });
     res.json(chats);
   } catch (err) {
-    console.error("Error fetching chat history:", err);
     res.status(500).json({ error: "Failed to fetch chat history" });
   }
 });
 
-
 // ✅ Export for Vercel
 export default app;
+
+
+
+
+
+
+
+
