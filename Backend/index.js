@@ -14,7 +14,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://moodlens-chatbot.vercel.app" 
+    "https://moodlenschatbot.vercel.app" 
   ],
   credentials: true
 }));
@@ -57,7 +57,7 @@ app.post("/api/chat", async (req, res) => {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        "HTTP-Referer": "https://moodlens-chatbot.vercel.app", // ✅ corrected
+        "HTTP-Referer": "https://moodlenschatbot.vercel.app", // ✅ corrected
         "X-Title": "Moodlens Chatbot",
       },
       body: JSON.stringify({
