@@ -15,7 +15,8 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://moodlenschatbot.netlify.app"
+    "https://moodlenschatbot.netlify.app",
+    "https://moodlens-chatbot.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
