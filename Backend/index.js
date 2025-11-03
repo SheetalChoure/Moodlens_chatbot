@@ -8,15 +8,17 @@ import authRoutes from "./routes/authRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
 
 dotenv.config();
+
 const app = express();
 
 // ✅ Correct CORS setup
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://moodlenschatbot.vercel.app" 
+    "https://moodlenschatbot.netlify.app" // ✅ correct Netlify frontend
   ],
-  credentials: true
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
 }));
 
 app.use(express.json());
