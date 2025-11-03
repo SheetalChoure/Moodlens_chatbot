@@ -15,9 +15,10 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://moodlenschatbot.netlify.app" // ✅ correct Netlify frontend
+    "https://moodlenschatbot.netlify.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 }));
 
