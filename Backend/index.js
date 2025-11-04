@@ -55,6 +55,7 @@ app.post("/api/chat", async (req, res) => {
       return res.status(400).json({ error: "Message is required" });
 
     await Chat.create({ userId, role: "user", content: message });
+  
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
@@ -65,7 +66,7 @@ app.post("/api/chat", async (req, res) => {
         "X-Title": "Moodlens Chatbot",
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o",
         messages: [
           { role: "system", content: "You are a helpful chatbot assistant." },
           { role: "user", content: message },
