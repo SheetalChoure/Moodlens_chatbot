@@ -157,7 +157,7 @@
 
 
 /* 📱 Responsive styles for tablets and mobile devices */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
 
   .home{
     margin: 0;
