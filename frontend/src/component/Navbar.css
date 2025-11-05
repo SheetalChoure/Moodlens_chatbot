@@ -100,11 +100,11 @@
   }
 
   .container-fluid{
-    width: 600px;
+    width: 480px;
     height: 70px;
   }
   .navbar-brand{
-    margin-left: -120px;
+    margin-left: -100px;
   }
 
   .nav-menu {
