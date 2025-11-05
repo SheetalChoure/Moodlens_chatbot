@@ -7,7 +7,8 @@ import fetch from "node-fetch";
 import authRoutes from "./routes/authRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
 
-dotenv.config({ path: "./.env" });
+dotenv.config({ path: "./.env", override: true });
+
 console.log("🔑 OpenRouter key:", process.env.OPENROUTER_API_KEY ? "Loaded ✅" : "❌ Missing");
 
 const app = express();
