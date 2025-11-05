@@ -94,7 +94,7 @@
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .hamburger {
     display: flex;
   }
