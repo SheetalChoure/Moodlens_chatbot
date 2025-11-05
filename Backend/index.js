@@ -66,7 +66,7 @@ app.post("/api/chat", async (req, res) => {
         "X-Title": "Moodlens Chatbot",
       },
       body: JSON.stringify({
-        model: "gpt-4o",
+        model: "gpt-4o-mini",
         messages: [
           { role: "system", content: "You are a helpful chatbot assistant." },
           { role: "user", content: message },
