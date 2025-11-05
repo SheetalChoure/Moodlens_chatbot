@@ -7,7 +7,8 @@ import fetch from "node-fetch";
 import authRoutes from "./routes/authRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
 
-dotenv.config();
+dotenv.config({ path: "./.env" });
+console.log("🔑 OpenRouter key:", process.env.OPENROUTER_API_KEY ? "Loaded ✅" : "❌ Missing");
 
 const app = express();
 
@@ -79,9 +80,13 @@ app.post("/api/chat", async (req, res) => {
     await Chat.create({ userId, role: "assistant", content: botReply });
 
     res.json({ reply: botReply });
+
+
   } catch (err) {
     console.error("❌ Server error:", err);
     res.status(500).json({ error: err.message });
+
+
   }
 });
 
