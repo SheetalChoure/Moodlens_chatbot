@@ -106,15 +106,11 @@
     height: 70px;
   }
   .navbar-brand{
-    margin-left: 10px;
+    margin-left: 5px;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: 1.5rem;
   }
 
-  .logo{
-    width: 3rem;
-    height: 3rem;
-  }
   .nav-menu {
     position: absolute;
     top: 70px;
