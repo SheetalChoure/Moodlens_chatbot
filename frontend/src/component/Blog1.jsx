@@ -1,5 +1,5 @@
 import React from 'react'
-import photo from './image/blog1img.avif'
+import photo from './image/blog1.jpg'
 import Navbar from './Navbar'
 import './Blogpost.css'
 

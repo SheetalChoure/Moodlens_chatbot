@@ -2,7 +2,7 @@ import React from 'react';
 import './Blog.css'
 import Navbar from './Navbar';
 import Footer from './footer';
-import photo from './image/blog1img.avif'
+import photo from './image/blog1.jpg'
 import photo2 from './image/blog2.jpg'
 import photo3 from './image/blog3.jpeg'
 import photo4 from './image/blog4.png'
