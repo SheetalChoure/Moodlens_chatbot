@@ -69,7 +69,7 @@ app.post("/api/chat", async (req, res) => {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        "HTTP-Referer": "https://moodlenschatbot.netlify.app",
+        "HTTP-Referer": "https://moodlens-chatbot-app.vercel.app",
         "X-Title": "Moodlens Chatbot",
       },
       body: JSON.stringify({
