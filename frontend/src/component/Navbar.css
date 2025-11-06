@@ -106,7 +106,9 @@
     height: 70px;
   }
   .navbar-brand{
-    margin-left: 20px;
+    margin-left: 10px;
+    font-family: Pristina;
+    font-size: 2rem;
   }
 
   .nav-menu {
