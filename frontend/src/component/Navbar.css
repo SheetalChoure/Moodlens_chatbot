@@ -95,10 +95,7 @@
 
 
 @media (max-width: 768px) {
-  .container-fluid {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  
 
   .hamburger {
     display: flex;
@@ -132,6 +129,16 @@
   .navbar .btn {
     width: 90%;
     margin: 10px auto;
+  }
+    @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
