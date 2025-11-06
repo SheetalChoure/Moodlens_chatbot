@@ -111,6 +111,10 @@
     font-size: 1.5rem;
   }
 
+  .logo{
+    width: 3rem;
+    height: 3rem;
+  }
   .nav-menu {
     position: absolute;
     top: 70px;
