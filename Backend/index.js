@@ -13,17 +13,23 @@ console.log("🔑 OpenRouter key:", process.env.OPENROUTER_API_KEY ? "Loaded ✅
 
 const app = express();
 
-// ✅ Correct CORS setup
-app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://moodlens-chatbot-app.vercel.app",
-    "https://moodlens-chatbot.vercel.app"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-}));
+
+
+// ✅ Correct and complete CORS setup
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://moodlens-chatbot-app.vercel.app", //  frontend
+      "https://moodlens-chatbot.vercel.app",     //  backend
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
+
+app.options(/.*/, cors());
 
 app.use(express.json());
 
